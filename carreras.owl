@@ -1,0 +1,174 @@
+@prefix : <http://www.semanticweb.org/teres/ontologies/2018/1/carreras#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.semanticweb.org/teres/ontologies/2018/1/carreras> a owl:Ontology ;
+	rdfs:comment "Ontologia de muestra web" .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#cursa
+
+:cursa a owl:ObjectProperty ;
+	rdfs:domain :estudiante ;
+	rdfs:range :materia .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#esParteDe
+
+:esParteDe a owl:ObjectProperty ;
+	rdfs:domain :materia ;
+	rdfs:range :carrera .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#pertenece
+
+:pertenece a owl:ObjectProperty ;
+	rdfs:domain :estudiante ;
+	rdfs:range :grupo .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#tiene
+
+:tiene a owl:ObjectProperty ;
+	rdfs:domain :carrera ;
+	rdfs:range :grupo .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#estudianteID
+
+:estudianteID a owl:DatatypeProperty ;
+	rdfs:domain :estudiante ;
+	rdfs:range xsd:integer .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#estudianteNombre
+
+:estudianteNombre a owl:DatatypeProperty ;
+	rdfs:domain :estudiante ;
+	rdfs:range xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#identificadorGrupo
+
+:identificadorGrupo a owl:DatatypeProperty ;
+	rdfs:domain :grupo ;
+	rdfs:range xsd:integer .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#nombreCarrera
+
+:nombreCarrera a owl:DatatypeProperty ;
+	rdfs:domain :carrera ;
+	rdfs:range xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#nombreMateria
+
+:nombreMateria a owl:DatatypeProperty ;
+	rdfs:domain :materia ;
+	rdfs:range xsd:string .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#carrera
+
+:carrera a owl:Class .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#estudiante
+
+:estudiante a owl:Class .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#grupo
+
+:grupo a owl:Class .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#materia
+
+:materia a owl:Class .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#Carrera1
+
+:Carrera1 a owl:NamedIndividual , :carrera ;
+	:tiene :grupo1 ;
+	:nombreCarrera "Ingeniería de Software"^^xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#Carrera2
+
+:Carrera2 a owl:NamedIndividual , :carrera ;
+	:tiene :grupo2 ;
+	:nombreCarrera "Ingeniería Civil"^^xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#estudiante1
+
+:estudiante1 a owl:NamedIndividual , :estudiante ;
+	:cursa :materia1 ;
+	:pertenece :grupo1 ;
+	:estudianteID "1"^^xsd:integer ;
+	:estudianteNombre "Martha"^^xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#estudiante2
+
+:estudiante2 a owl:NamedIndividual , :estudiante ;
+	:cursa :materia1 ;
+	:pertenece :grupo1 ;
+	:estudianteID "2"^^xsd:integer ;
+	:estudianteNombre "Jonas"^^xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#estudiante3
+
+:estudiante3 a owl:NamedIndividual , :estudiante ;
+	:cursa :materia2 ;
+	:pertenece :grupo2 ;
+	:estudianteID "3"^^xsd:integer ;
+	:estudianteNombre "Alberto"^^xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#grupo1
+
+:grupo1 a owl:NamedIndividual , :grupo ;
+	:identificadorGrupo "101"^^xsd:integer .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#grupo2
+
+:grupo2 a owl:NamedIndividual , :grupo ;
+	:identificadorGrupo "102"^^xsd:integer .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#materia1
+
+:materia1 a owl:NamedIndividual , :materia ;
+	:esParteDe :Carrera1 ;
+	:nombreMateria "Algoritmos"^^xsd:string .
+# 
+# http://www.semanticweb.org/teres/ontologies/2018/1/carreras#materia2
+
+:materia2 a owl:NamedIndividual , :materia ;
+	:esParteDe :Carrera2 ;
+	:nombreMateria "Algebra"^^xsd:string .
+# 
+# Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi
